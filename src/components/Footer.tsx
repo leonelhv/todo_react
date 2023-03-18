@@ -13,7 +13,7 @@ export const Footer = () => {
       </span>
       <Filters />
       <button className="clear-completed" onClick={() => dispatchTodo({ type: ACTIONS_TODO.REMOVE_ALL_COMPLETED })}>
-        Clear completed
+        Limpiar Completados
       </button>
     </footer>
   )
