@@ -1,7 +1,6 @@
 export interface Todo {
   id: string
   name: string
-  description: string
   completed: boolean
 }
 
@@ -14,13 +13,15 @@ export type TodoContextType = {
   activeCount: number
   filteredTodos: Todo[]
   filterSelected: FilterValue
-  addTodo: (todo: Todo) => void
+  stateTodo: Todo[]
+  dispatchTodo: React.Dispatch<todoAction>
   handleFilterChange: (filter: FilterValue) => void
-  handleRemoveAllCompleted: () => void
-  handleRemoveTodo: ({ id }: TodoId) => void
-  handleCompleted: ({ id, completed }: TodoID_COMPLETED) => void
-  handleUpdateNameTodo: ({ id, name }: TodoID_NAME) => void
 }
+export type todoAction = {
+  type: ActionsValue
+  payload?: Todo | TodoID_NAME | TodoID_COMPLETED | TodoId
+}
+export type todoState = Todo[]
 export const TODO_FILTERS = {
   ALL: "all",
   ACTIVE: "active",
@@ -43,3 +44,13 @@ export const FILTER_BUTTONS = {
 }
 
 export type FilterValue = typeof TODO_FILTERS[keyof typeof TODO_FILTERS]
+
+export const ACTIONS_TODO = {
+  TOGGLE_COMPLETED: "toggle_completed",
+  REMOVE_BY_ID: "remove_by_id",
+  REMOVE_ALL_COMPLETED: "remove_all_completed",
+  UPDATE_NAME: "update_name",
+  ADD_TODO: "add_todo",
+} as const
+
+export type ActionsValue = typeof ACTIONS_TODO[keyof typeof ACTIONS_TODO]

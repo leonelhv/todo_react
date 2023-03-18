@@ -1,16 +1,16 @@
 import { useContext, useState } from "react"
 import { TodoContext } from "../context/todo"
-import { TodoContextType } from "../types/Todo"
+import { ACTIONS_TODO, TodoContextType } from "../types/Todo"
 
 export const InputBox = () => {
   const [todo, setTodo] = useState<string>("")
-  const { addTodo } = useContext(TodoContext) as TodoContextType
+  const { dispatchTodo } = useContext(TodoContext) as TodoContextType
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!todo) return
     const newTodo = { id: crypto.randomUUID(), name: todo, description: "", completed: false }
-    addTodo(newTodo)
+    dispatchTodo({ type: ACTIONS_TODO.ADD_TODO, payload: newTodo })
     setTodo("")
   }
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +18,7 @@ export const InputBox = () => {
   }
   return (
     <form action="" onSubmit={handleSubmit}>
-      <input className="new-todo" placeholder="What needs to be done?" value={todo} onChange={handleInputChange} />
+      <input className="new-todo" placeholder="¿Qué hay que hacer?" value={todo} onChange={handleInputChange} />
     </form>
   )
 }

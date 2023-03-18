@@ -2,26 +2,22 @@
   "todos": [
     {
       "id": "1",
-      "name": "Buy groceries",
-      "description": "Buy food for the week at the supermarket",
+      "name": "Comprar alimentos",
       "completed": false
     },
     {
       "id": "2",
-      "name": "Wash the car",
-      "description": "Wash the car and vacuum it",
+      "name": "Lavar el coche",
       "completed": false
     },
     {
       "id": "3",
-      "name": "Exercise",
-      "description": "Go to the gym and do 10 minutes of warm-up, 30 minutes of cardio, and 20 minutes of weightlifting",
+      "name": "Hacer ejercicio",
       "completed": true
     },
     {
       "id": "4",
-      "name": "Check email",
-      "description": "Check and respond to important emails",
+      "name": "Revisar correo electrónico",
       "completed": true
     }
   ]
